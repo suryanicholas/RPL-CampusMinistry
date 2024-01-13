@@ -1,0 +1,573 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@keyframes --TextBlink {
+    0%{
+        color: #ffffff8e;
+        text-shadow: 0 0 15px #000000;
+    }
+    50%{
+        color: #ffffff;
+        text-shadow: 0 0 15px #ffffff;
+    }
+    100%{
+        color: #ffffff8e;
+        text-shadow: 0 0 15px #000000;
+    }
+}
+input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    color: #ffffff;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    display: grid;
+    cursor: pointer;
+    place-content: center;
+}
+
+input[type="radio"]::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    background-color: #e07676;
+    z-index: 0;
+}
+
+input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+/* Alert Message */
+#alert-message{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    transform: scale(0);
+    transition: .3s;
+}
+#alert-message .contents{
+    padding: 20px;
+    max-width: 40%;
+    min-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffe7e7;
+    border-radius: 20px;
+}
+#alert-message .contents .icon{
+    font-size: 88px;
+}
+#alert-message .contents .alerts{
+    font-size: 27px;
+    font-weight: 700;
+}
+#alert-message .contents .messages{
+    font-size: 20px;
+    text-align: center;
+}
+#alert-message .contents #close{
+    margin-top: 20px;
+    padding: 2px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    box-shadow: inset 2px 0 0 #0e0000,inset -2px 0 0 #0e0000,
+    inset 0 2px 0 #0e0000,inset 0 -2px 0 #0e0000;
+    color: #ffffffb2;
+    font-size: 27px;
+    font-weight: 700;
+    background: #098b09;
+}
+#alert-message .contents #close:hover{
+    color: #ffffff;
+    background: #0cbd0c;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+body{
+    position: relative;
+    height: 100vh;
+    background: #a41312;
+    box-sizing: border-box;
+    overscroll-behavior: none;
+}
+.container{
+    position: relative;
+    display: none;
+}
+/* Campus Ministry Section */
+.campus-ministry{
+    position: sticky;
+    top: 0;
+    background: #a41312;
+    box-shadow: 0 2px 10px #8b1010;
+    z-index: 1;
+    transition: .5s;
+}
+.container.signin .campus-ministry{
+    box-shadow: none;
+    transform: translateY(-60px);
+}
+.container.signup .campus-ministry{
+    transform: translateY(-60px);
+}
+.campus-ministry-text{
+    position: sticky;
+    padding: 20px 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+.campus-ministry-text span{
+    padding-left: 10px;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 10px;
+    transition: .5s;
+    animation: --TextBlink 4s infinite cubic-bezier(1,1,1,1);
+}
+.container.active .campus-ministry-text span,
+.container.signup .campus-ministry-text span{
+    opacity: 0;
+}
+.campus-ministry-logo{
+    display: flex;
+    justify-content: center;
+}
+.campus-ministry-logo img{
+    width: 100%;
+    transition: .5s;
+}
+.container.signin .campus-ministry-logo img,
+.container.signup .campus-ministry-logo img{
+    width: 80%;
+}
+/* Navigation Section */
+.canvas-navigations{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    transition: .5s;
+}
+.navigation-options{
+    margin: 5px 0;
+}
+.navigation-options button{
+    padding: 4px 16px;
+    color: #ffffffa9;
+    font-size: 36px;
+    font-weight: 500;
+    border: none;
+    text-shadow: 0 0 10px #330606;
+    box-shadow: inset 4px 0 0 #000000, inset -4px 0 0 #000000, inset 0 4px 0 #000000, inset 0 -4px 0 #000000, 4px 4px 5px #410606;
+    display: flex;
+    cursor: pointer;
+    transition: .3s;
+}
+.navigation-options button:hover{
+    color: #ffffff;
+    border-radius: 15px;
+}
+.navigation-options:nth-child(1) button{
+    background: #009600;
+}
+.navigation-options:nth-child(1) button:hover{
+    background: #00ff00;
+}
+.navigation-options:nth-child(2) button{
+    background: #7a0000;
+}
+.navigation-options:nth-child(2) button:hover{
+    background: #d80000;
+}
+
+/* Sign In Section */
+.canvas-signin{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    transition: .5s;
+    opacity: 0;
+}
+.signin-forms{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(80px);
+}
+.signin-forms form{
+    padding: 20px;
+    background: #db0000;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px #410606,inset 4px 0 0 #ff3c3c, inset -4px 0 0 #ff3c3c, inset 0 4px 0 #ff3c3c, inset 0 -4px 0 #ff3c3c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.forSignin-data-required{
+    width: 85%;
+    display: flex;
+    justify-content: center;
+}
+.forSignin-data-required:nth-child(1){
+    margin: 10px 0;
+}
+.forSignin-data-required:nth-child(2){
+    margin-top: 10px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.forSignin-data-required input{
+    padding: 4px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: inset 4px 0 0 #ff3c3c, inset -4px 0 0 #ff3c3c, inset 0 4px 0 #ff3c3c, inset 0 -4px 0 #ff3c3c;
+    background: #a41312;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+}
+.forSignin-data-required input:hover{
+    box-shadow: inset 4px 0 0 #ff7d7d, inset -4px 0 0 #ff7d7d, inset 0 4px 0 #ff7d7d, inset 0 -4px 0 #ff7d7d;
+}
+.forSignin-data-required input:focus{
+    cursor: text;
+}
+.forSignin-data-required input::-ms-reveal,
+.forSignin-data-required input::-ms-clear{
+    display: none;
+}
+.forSignin-data-required input::placeholder{
+    color: #ffffffc9;
+    transition: .2s;
+}
+.forSignin-data-required input:focus::placeholder{
+    color: transparent;
+}
+.forSignin-data-required:nth-child(2) ion-icon{
+    position: absolute;
+    margin: 0 10px;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+.signin-message{
+    margin: 3px 0;
+    width: 85%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-weight: 400;
+    cursor: default;
+    user-select: none;
+}
+.signin-message ion-icon{
+    margin: 0 5px 0 0;
+    font-size: 20px;
+}
+.signin-message span{
+    margin: 0 5px 0 0;
+    font-size: 16px;
+}
+.signin-form-button{
+    padding: 10px 0 5px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.signin-form-button button{
+    padding: 4px 16px;
+    color: #ffffffa9;
+    font-size: 27px;
+    font-weight: 500;
+    text-shadow: 0 0 10px #330606;
+    border: none;
+    box-shadow: inset 4px 0 0 #000000, inset -4px 0 0 #000000, inset 0 4px 0 #000000, inset 0 -4px 0 #000000, 4px 4px 5px #410606;
+    background: #7a0000;
+    display: flex;
+    transition: .3s;
+    cursor: pointer;
+}
+.signin-form-button button:hover{
+    border-radius: 10px;
+    color: #ffffff;
+    background: #d80000;
+}
+.signin-navigation{
+    margin: 20px;
+    width: 100%;
+    display: flex;
+}
+.signin-navigation-options{
+    margin: 0 auto;
+}
+.signin-navigation-options button{
+    padding: 4px 16px;
+    width: 5em;
+    color: #ffffffa9;
+    font-size: 27px;
+    background: #7a0000;
+    border: none;
+    box-shadow: inset 4px 0 0 #000000, inset -4px 0 0 #000000, inset 0 4px 0 #000000, inset 0 -4px 0 #000000, 4px 4px 5px #410606;
+    cursor: pointer;
+    transition: .3s;
+}
+.signin-navigation-options button:hover{
+    color: #ffffff;
+    background: #d80000;
+    border-radius: 10px;
+}
+
+/* Sign Up Section */
+.canvas-signup{
+    position: sticky;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    opacity: 0;
+    transition: .5s;
+}
+.signup-forms{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.signup-forms form{
+    padding: 20px 0;
+    width: 480px;
+    max-width: 480px;
+    background: #db0000;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px #410606,inset 4px 0 0 #ff3c3c, inset -4px 0 0 #ff3c3c, inset 0 4px 0 #ff3c3c, inset 0 -4px 0 #ff3c3c;
+}
+.forSignup-data-required{
+    padding: 0 20px;
+    margin: 0 0 15px 0;
+    display: flex;
+    flex-direction: column;
+}
+.forSignup-data-required .labels{
+    margin: 2px 0;
+    width: 100%;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+}
+.forSignup-data-required input[type='text'],
+.forSignup-data-required input[type='email'],
+.forSignup-data-required input[type='date'],
+.forSignup-data-required textarea{
+    padding: 4px 8px;
+    width: 100%;
+    background: #a41312;
+    outline: none;
+    border: none;
+    box-shadow: inset 3px 0 0 #ff3c3c, inset -3px 0 0 #ff3c3c, inset 0 3px 0 #ff3c3c, inset 0 -3px 0 #ff3c3c;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: .3s;
+}
+.forSignup-data-required textarea{
+    height: 135px;
+    font-size: 18px;
+    resize: none;
+}
+select{
+    appearance: none;
+    padding: 4px 8px;
+    width: 100%;
+    background: #a41312;
+    outline: none;
+    border: none;
+    box-shadow: inset 3px 0 0 #ff3c3c, inset -3px 0 0 #ff3c3c, inset 0 3px 0 #ff3c3c, inset 0 -3px 0 #ff3c3c;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: .3s;
+}
+select option{
+    outline: none;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+}
+.forSignup-data-required .messages{
+    margin: 2px 0 0 0;
+    height: 20px;
+    color: #ffffff;
+    font-weight: 500;
+    text-shadow: 0 0 5px #000000;
+    letter-spacing: .5px;
+    display: flex;
+    align-items: center;
+}
+.forSignup-data-required .messages ion-icon{
+    margin: 0 3px 0 0;
+}
+/* Radio Button Customize */
+.gender-selection{
+    display: flex;
+    align-items: center;
+}
+.select-option{
+    margin-right: auto;
+    padding: 2px 8px;
+    width: 40%;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 20px;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    background: #a41312;
+    cursor: pointer;
+}
+
+/* Image Preview Customize */
+.canvas-images{
+    display: flex;
+    align-items: center;
+}
+.images-selection{
+    position: relative;
+    width: 120px;
+    max-width: 120px;
+    height: 120px;
+    max-height: 120px;
+    overflow: hidden;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    border: 3px solid #000000;
+    cursor: pointer;
+}
+.images-selection::before,
+.images-selection::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    border-radius: 3px;
+    background-color: black;
+    z-index: 0;
+}
+.images-selection::before{
+    transform: rotate(-45deg);
+}
+.images-selection::after{
+    transform: rotate(45deg);
+}
+.images-selection img{
+    width: 100%;
+    background: #ffffff;
+    z-index: 1;
+}
+.canvas-images div{
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 25px;
+    color: #ffffff;
+    font-weight: 500;
+}
+.canvas-images div span{
+    display: list-item;
+    list-style:square;
+}
+input[type='file']{
+    display: none;
+}
+.signup-form-button{
+    padding: 10px 0 5px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.signup-form-button button{
+    padding: 4px 16px;
+    color: #ffffffa9;
+    font-size: 27px;
+    font-weight: 500;
+    text-shadow: 0 0 10px #330606;
+    border: none;
+    box-shadow: inset 4px 0 0 #000000, inset -4px 0 0 #000000, inset 0 4px 0 #000000, inset 0 -4px 0 #000000, 4px 4px 5px #410606;
+    background: #7a0000;
+    display: flex;
+    transition: .3s;
+    cursor: pointer;
+}
+.signup-form-button button:hover{
+    border-radius: 10px;
+    color: #ffffff;
+    background: #d80000;
+}
+.signup-navigation{
+    margin: 20px;
+    width: 100%;
+    display: flex;
+}
+.signup-navigation-options{
+    margin: 0 auto;
+}
+.signup-navigation-options button{
+    padding: 4px 16px;
+    width: 5em;
+    color: #ffffffa9;
+    font-size: 27px;
+    background: #7a0000;
+    border: none;
+    box-shadow: inset 4px 0 0 #000000, inset -4px 0 0 #000000, inset 0 4px 0 #000000, inset 0 -4px 0 #000000, 4px 4px 5px #410606;
+    cursor: pointer;
+    transition: .3s;
+}
+.signup-navigation-options button:hover{
+    color: #ffffff;
+    background: #d80000;
+    border-radius: 10px;
+}

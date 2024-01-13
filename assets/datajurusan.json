@@ -1,0 +1,82 @@
+[
+    {
+        "Fakultas": "Keguruan dan Ilmu Pendidikan",
+        "Studi": "Pendidikan Sekolah Dasar"
+    },
+    {
+        "Fakultas": "Keguruan dan Ilmu Pendidikan",
+        "Studi": "Pendidikan Sastra dan Bahasa Indonesia"
+    },
+    {
+        "Fakultas": "Keguruan dan Ilmu Pendidikan",
+        "Studi": "Pendidikan Bahasa Inggris"
+    },
+    {
+        "Fakultas": "Keguruan dan Ilmu Pendidikan",
+        "Studi": "Pendidikan Matematika"
+    },
+    {
+        "Fakultas": "Hukum",
+        "Studi": "Ilmu Hukum"
+    },
+    {
+        "Fakultas": "Pertanian",
+        "Studi": "Teknologi Hasil Pertanian"
+    },
+    {
+        "Fakultas": "Pertanian",
+        "Studi": "Agroteknologi"
+    },
+    {
+        "Fakultas": "Pertanian",
+        "Studi": "Agribisnis"
+    },
+    {
+        "Fakultas": "Ekonomi dan Bisnis",
+        "Studi": "Manajemen"
+    },
+    {
+        "Fakultas": "Ekonomi dan Bisnis",
+        "Studi": "Akuntansi"
+    },
+    {
+        "Fakultas": "Ilmu Budaya",
+        "Studi": "Bahasa dan Sastra Inggris"
+    },
+    {
+        "Fakultas": "Ilmu Budaya",
+        "Studi": "Psikologi"
+    },
+    {
+        "Fakultas": "Ilmu Budaya",
+        "Studi": "Parawisata"
+    },
+    {
+        "Fakultas": "Ilmu Komputer",
+        "Studi": "Teknik Informatika"
+    },
+    {
+        "Fakultas": "Ilmu Komputer",
+        "Studi": "Sistem Informasi"
+    },
+    {
+        "Fakultas": "Ilmu Komputer",
+        "Studi": "Sains Data"
+    },
+    {
+        "Fakultas": "Teknik",
+        "Studi": "Arsitektur"
+    },
+    {
+        "Fakultas": "Teknik",
+        "Studi": "Teknik Sipil"
+    },
+    {
+        "Fakultas": "Filsafat",
+        "Studi": "Ilmu Filsafat S1"
+    },
+    {
+        "Fakultas": "Filsafat",
+        "Studi": "Pasca Sarjana Ilmu Filsafat S2"
+    }
+]
