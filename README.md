@@ -1,5 +1,7 @@
 Rekayasa Perangkat Lunak
 ===
+[Dosen] Andy Paul Harianja
+###
 Perancangan Sistem Konseling Daring Campus Ministry berbasis Web
 Universitas Katolik Santo Thomas Sumatera Utara
 ===
